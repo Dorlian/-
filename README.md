@@ -151,3 +151,22 @@ git merge experiment/broken-version
 - Как минимум два разных приёма отката: например, `git restore --source=main -- файл` и `git revert` (или `git reset` на отдельной ветке).
 - Рабочий сайт на GitHub Pages по ссылке.
 - Для команды: PR, комментарии review, merge, обновление через `git pull`.
+
+---
+
+## Пример истории в этом репозитории (демо отката)
+
+После клонирования можно показать граф:
+
+```bash
+git log --oneline --graph --all
+```
+
+Ожидаемая картина: коммит «сломанной» версии и следующий за ним коммит с восстановлением файлов из `main` через `git restore --source=main`, затем слияние ветки `experiment/broken-version` в `main`.
+
+Перед первым коммитом у себя на машине задайте имя и email Git (или только для этого репозитория):
+
+```bash
+git config user.name "Ваше Имя"
+git config user.email "you@example.com"
+```
