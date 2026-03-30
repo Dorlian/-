@@ -143,13 +143,32 @@ git merge experiment/broken-version
 
 ## Публикация на GitHub Pages
 
-1. Залейте репозиторий на GitHub (`git remote add origin ...`, `git push -u origin main`).
-2. В репозитории: **Settings → Pages**.
-3. **Source:** ветка `main`, папка `/ (root)` (как в этом проекте).
-4. Сохраните. Через 1–3 минуты сайт будет по адресу вида  
-   `https://<username>.github.io/<repo>/`.
+### Связь локального репозитория с GitHub (этот проект)
 
-Откройте в браузере главную: если репозиторий не в корне пользователя, путь будет с именем репозитория в URL.
+Создайте пустой репозиторий на GitHub (без README, если клонируете уже существующий проект — не обязательно), затем в папке проекта:
+
+```bash
+git remote add origin https://github.com/Dorlian/-.git
+git branch -M main
+git push -u origin main
+```
+
+Если `origin` уже был добавлен раньше с другим URL, замените адрес:
+
+```bash
+git remote set-url origin https://github.com/Dorlian/-.git
+git push -u origin main
+```
+
+### Включение GitHub Pages
+
+1. В репозитории на GitHub: **Settings → Pages**.
+2. **Source:** ветка `main`, папка `/ (root)` (как в этом проекте).
+3. Сохраните. Через 1–3 минуты сайт будет по адресу вида  
+   `https://dorlian.github.io/-/`  
+   (имя пользователя и репозитория совпадают с URL выше).
+
+Откройте в браузере главную по ссылке Pages.
 
 ---
 
