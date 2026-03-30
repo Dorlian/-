@@ -38,10 +38,27 @@ git commit -m "feat: начальная рабочая версия сайта"
 
 Дальше можно сделать ещё один «чистый» коммит (например, правка текста на главной), чтобы история была похожа на реальную.
 
+Если после `git add .` и `git commit` Git пишет **«nothing to commit, working tree clean»** — это нормально: все файлы уже закоммичены. Либо сделайте любую маленькую правку в файле и закоммитьте снова, либо переходите к следующему шагу.
+
 ### Шаг 2. Создать ветку для «сломанной» версии (не трогая `main` напрямую)
 
 ```bash
 git checkout -b experiment/broken-version
+```
+
+Если появилось **«fatal: a branch named 'experiment/broken-version' already exists»** — ветка уже есть (например, в этом репозитории демо уже настроено). Тогда **переключитесь** на неё, не создавая заново:
+
+```bash
+git switch experiment/broken-version
+# или: git checkout experiment/broken-version
+```
+
+Либо создайте **новую** ветку с другим именем и повторите шаги 3–4 уже в ней:
+
+```bash
+git switch main
+git pull
+git switch -c experiment/broken-version-my
 ```
 
 ### Шаг 3. Сымитировать ошибку (для демонстрации преподавателю)
